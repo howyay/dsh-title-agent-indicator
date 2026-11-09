@@ -1,0 +1,54 @@
+{
+  "name": "dsh-title-agent-indicator",
+  "version": "0.5.0",
+  "description": "DSH Web plugin: draws the number of running subagents on top of the session row's own status indicator, and shows the same number next to the session title. Works with the official sidebar and with codex-ui.",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "ui"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howyay/dsh-title-agent-indicator.git"
+  },
+  "homepage": "https://github.com/howyay/dsh-title-agent-indicator#readme",
+  "bugs": {
+    "url": "https://github.com/howyay/dsh-title-agent-indicator/issues"
+  },
+  "scripts": {
+    "test": "node test/smoke.cjs"
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.5-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
